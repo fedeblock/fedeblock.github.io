@@ -18,7 +18,7 @@ a{color:#000000}a:hover{color:#e2231a}.ico:hover{color:#000000 !important}
 .rule{height:3px;background:#000000;margin-bottom:28px;transform-origin:left center}
 @keyframes draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 @media (prefers-reduced-motion:no-preference){@supports (animation-timeline: view()){.rule{animation:draw linear both;animation-timeline:view();animation-range:entry 0% cover 15%}}}
-.badge{display:inline-flex;align-items:center;font-size:13px;font-weight:700;line-height:1;padding:5px 10px;border:1.5px solid #000000;border-radius:999px;text-decoration:none;color:#000000}.badge:hover{background:#000000;color:#ffffff}
+.badge{display:inline-flex;font-size:12px;line-height:1;border-radius:3px;overflow:hidden;text-decoration:none;font-weight:600}.badge span{padding:4px 6px}.badge .k{background:#555555;color:#ffffff}.badge .v{background:#000000;color:#ffffff}.badge:hover .v{background:#e2231a}
 .more{display:inline-flex;align-items:center;gap:12px;font-weight:700;text-decoration:none;color:#000000}.more svg{transition:transform .2s ease}.more:hover svg{transform:translateX(4px)}
 @media (prefers-reduced-motion:reduce){.more svg{transition:none}}
 .yr{grid-column:1 / 3}
@@ -44,9 +44,9 @@ a{color:#000000}a:hover{color:#e2231a}.ico:hover{color:#000000 !important}
 <section id="pienso" style="padding: clamp(64px, 7vw, 104px) max(10vw, 20px) clamp(80px, 9vw, 136px)">
 <div class="wrap"><div class="rule"></div>
 <h2 style="margin: 0 0 40px; font-size: clamp(28px, 3vw, 40px); line-height: 1.1; font-weight: 300; text-transform: uppercase; letter-spacing: 0.01em; color: #6b6b6b">Algo de lo que pienso</h2><div class="c3">
-<div style="border-top: 1px solid #000000; padding-top: 14px"><p style="margin: 0 0 6px; color: #6b6b6b">Antes: el iPad, 2010</p><h3 style="margin: 0; font-size: 17px; font-weight: 700">La computación que nos envuelve</h3></div>
-<div style="border-top: 1px solid #000000; padding-top: 14px"><p style="margin: 0 0 6px; color: #6b6b6b">Antes: “La inteligencia artificial ya está aquí”, hacia 2017</p><h3 style="margin: 0; font-size: 17px; font-weight: 700">Qué hacer con los modelos de lenguaje</h3></div>
-<div style="border-top: 1px solid #000000; padding-top: 14px"><p style="margin: 0 0 6px; color: #6b6b6b">Antes: <a href="https://web.archive.org/web/20180430/http://beready.es/blog/gdpr.html" style="color: #6b6b6b">el reglamento europeo de protección de datos, 2017</a></p><h3 style="margin: 0; font-size: 17px; font-weight: 700">Traer la infraestructura digital a Europa</h3></div>
+<div style="border-top: 1px solid #000000; padding-top: 14px"><p style="margin: 0 0 6px; color: #6b6b6b">Antes: “¿Por qué todos vamos a comprar un iPad?”, 2010</p><h3 style="margin: 0 0 8px; font-size: 17px; font-weight: 700">La computación que nos envuelve</h3><p style="margin: 0">No se trata de inmersión, se trata de que nos envuelva. La realidad virtual te encierra en otro mundo; lo que me interesa es que el lugar que ya ocupas te conteste. Para eso, la interfaz clave es la voz.</p></div>
+<div style="border-top: 1px solid #000000; padding-top: 14px"><p style="margin: 0 0 6px; color: #6b6b6b">Antes: “La inteligencia artificial ya está aquí”, hacia 2018</p><h3 style="margin: 0 0 8px; font-size: 17px; font-weight: 700">Qué hacer con los modelos de lenguaje</h3><p style="margin: 0">Creo en la soberanía de los modelos de lenguaje, por tres razones: la métrica con la que trabajan, la dependencia de un proveedor y la jurisdicción bajo la que corren.</p></div>
+<div style="border-top: 1px solid #000000; padding-top: 14px"><p style="margin: 0 0 6px; color: #6b6b6b">Antes: <a href="https://web.archive.org/web/20180430/http://beready.es/blog/gdpr.html" style="color: #6b6b6b">el reglamento europeo de protección de datos, 2017</a></p><h3 style="margin: 0 0 8px; font-size: 17px; font-weight: 700">Traer la infraestructura digital a Europa</h3><p style="margin: 0">Las empresas europeas deberían trasladar su infraestructura digital a Europa, y mejor todavía ser dueñas de ella. Es parte de algo mayor: la soberanía tecnológica.</p></div>
 </div>
 <p style="margin: 32px 0 0; color: #6b6b6b">Lecturas fechadas, para poder revisarlas con el tiempo. Próximamente.</p>
 </div>
@@ -55,7 +55,7 @@ a{color:#000000}a:hover{color:#e2231a}.ico:hover{color:#000000 !important}
 <h2 style="margin: 0 0 40px; font-size: clamp(28px, 3vw, 40px); line-height: 1.1; font-weight: 300; text-transform: uppercase; letter-spacing: 0.01em; color: #6b6b6b">Un libro</h2><div class="sec"><div class="con"><p style="margin: 0; max-width: 36em">En preparación. Sobre cómo leer el contexto de una innovación antes de comprometerse con ella. <a href="https://www.linkedin.com/in/federicoblock/" style="font-weight: 700">Sigue en LinkedIn para saber cuándo sale</a>.</p></div></div>
 </div>
 </section>
-<footer style="padding: 0 max(10vw, 20px) 40px"><div class="wrap" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; color: #6b6b6b"><span>Federico Block, Madrid.</span><a href="agents.md" style="color: #6b6b6b">agents.md, para asistentes de IA</a></div></footer>
+<footer style="padding: 0 max(10vw, 20px) 40px"><div class="wrap" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; color: #6b6b6b"><span>Federico Block, Madrid.</span><a href="agents.md" style="color: #6b6b6b">agents.md</a></div></footer>
 </div>
 </body>
 </html>

@@ -18,7 +18,7 @@ a{color:#000000}a:hover{color:#e2231a}.ico:hover{color:#000000 !important}
 .rule{height:3px;background:#000000;margin-bottom:28px;transform-origin:left center}
 @keyframes draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 @media (prefers-reduced-motion:no-preference){@supports (animation-timeline: view()){.rule{animation:draw linear both;animation-timeline:view();animation-range:entry 0% cover 15%}}}
-.badge{display:inline-flex;align-items:center;font-size:13px;font-weight:700;line-height:1;padding:5px 10px;border:1.5px solid #000000;border-radius:999px;text-decoration:none;color:#000000}.badge:hover{background:#000000;color:#ffffff}
+.badge{display:inline-flex;font-size:12px;line-height:1;border-radius:3px;overflow:hidden;text-decoration:none;font-weight:600}.badge span{padding:4px 6px}.badge .k{background:#555555;color:#ffffff}.badge .v{background:#000000;color:#ffffff}.badge:hover .v{background:#e2231a}
 .more{display:inline-flex;align-items:center;gap:12px;font-weight:700;text-decoration:none;color:#000000}.more svg{transition:transform .2s ease}.more:hover svg{transform:translateX(4px)}
 @media (prefers-reduced-motion:reduce){.more svg{transition:none}}
 .yr{grid-column:1 / 3}
@@ -46,7 +46,8 @@ a{color:#000000}a:hover{color:#e2231a}.ico:hover{color:#000000 !important}
 <h2 style="margin: 0 0 40px; font-size: clamp(28px, 3vw, 40px); line-height: 1.1; font-weight: 300; text-transform: uppercase; letter-spacing: 0.01em; color: #6b6b6b">Algo de lo hecho</h2><div class="c3"><article>
 <img loading="lazy" src="img/sonrisometro.jpg" alt="Sonrisómetro" style="display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; background: #eeeeee">
 <p style="margin: 14px 0 6px; text-transform: uppercase; letter-spacing: 0.04em; color: #6b6b6b">OOH, McDonald’s</p>
-<h3 style="margin: 0 0 6px; font-size: 17px; font-weight: 700; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px">Sonrisómetro<a class="badge" href="https://mindgeist.com/sonrisometro/">Probar la demo</a></h3>
+<h3 style="margin: 0 0 6px; font-size: 17px; font-weight: 700">Sonrisómetro</h3>
+<p style="margin: 0 0 8px"><a class="badge" href="https://mindgeist.com/sonrisometro/" aria-label="Demo de Sonrisómetro"><span class="k">demo</span><span class="v">probar</span></a></p>
 <p style="margin: 0">Paga el café con una sonrisa. Un mupi la medía y, cuanto más sonreías, antes se llenaba la taza.</p><p style="margin: 10px 0 0; color: #6b6b6b">+5.000 pruebas de producto</p>
 </article><article>
 <img loading="lazy" src="img/vuelta-vr.jpg" alt="Vuelta ciclista en realidad virtual" style="display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; background: #eeeeee">
@@ -56,7 +57,8 @@ a{color:#000000}a:hover{color:#e2231a}.ico:hover{color:#000000 !important}
 </article><article>
 <img loading="lazy" src="img/smoothies.jpg" alt="Teletransporter" style="display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; background: #eeeeee">
 <p style="margin: 14px 0 6px; text-transform: uppercase; letter-spacing: 0.04em; color: #6b6b6b">OOH, McDonald’s</p>
-<h3 style="margin: 0 0 6px; font-size: 17px; font-weight: 700; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px">Teletransporter<a class="badge" href="https://mindgeist.com/teletransporter/">Probar la demo</a></h3>
+<h3 style="margin: 0 0 6px; font-size: 17px; font-weight: 700">Teletransporter</h3>
+<p style="margin: 0 0 8px"><a class="badge" href="https://mindgeist.com/teletransporter/" aria-label="Demo de Teletransporter"><span class="k">demo</span><span class="v">probar</span></a></p>
 <p style="margin: 0">Escápate al sitio más cool. Una marquesina en pleno calor de Madrid y Barcelona te recortaba, te llevaba a una playa e imprimía la foto con un cupón para un smoothie.</p><p style="margin: 10px 0 0; color: #6b6b6b">+3.500 foto-cupones</p>
 </article><article>
 <img loading="lazy" src="img/chiringuitour.jpg" alt="Chiringuitour" style="display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; background: #eeeeee">
@@ -100,7 +102,7 @@ a{color:#000000}a:hover{color:#e2231a}.ico:hover{color:#000000 !important}
 </article></div>
 </div>
 </section>
-<footer style="padding: 0 max(10vw, 20px) 40px"><div class="wrap" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; color: #6b6b6b"><span>Federico Block, Madrid.</span><a href="agents.md" style="color: #6b6b6b">agents.md, para asistentes de IA</a></div></footer>
+<footer style="padding: 0 max(10vw, 20px) 40px"><div class="wrap" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; color: #6b6b6b"><span>Federico Block, Madrid.</span><a href="agents.md" style="color: #6b6b6b">agents.md</a></div></footer>
 </div>
 </body>
 </html>
