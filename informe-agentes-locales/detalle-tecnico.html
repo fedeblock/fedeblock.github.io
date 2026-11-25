@@ -1,40 +1,72 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Modelos locales y agentes de código: 16 ejecuciones sobre una tarea real</title>
-<meta name="description" content="Una evaluación exploratoria de Pi y OpenCode con modelos locales: dos series, arranque frío y precalentado, y verificación independiente del código. Caso anonimizado.">
+<title>Modelos locales y agentes de código: 16 ejecuciones sobre una tarea real · Federico Block</title>
+<meta name="description" content="Una evaluación exploratoria de Pi y OpenCode con modelos locales: dos series, arranque frío y precalentado, y verificación independiente del código.">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="es_ES">
 <meta property="og:title" content="Modelos locales y agentes de código: 16 ejecuciones sobre una tarea real">
-<meta property="og:description" content="Resolver la función y cerrar una entrega verificada son resultados distintos. Un caso anonimizado con Pi, OpenCode y modelos locales.">
+<meta property="og:description" content="Resolver la función y cerrar una entrega verificada son resultados distintos. Una comparación de Pi y OpenCode con modelos locales.">
 <meta property="article:published_time" content="2026-11-25">
 <meta name="color-scheme" content="light">
+
+
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400..700&amp;display=swap" rel="stylesheet">
 <style>
-:root{--ink:#111;--muted:#595959;--line:#d5d5d5;--accent:#b91f17;--green:#245e3e}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;background:#fff;color:var(--ink);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:18px;line-height:1.65}
-a{color:inherit;text-underline-offset:4px}a:hover{color:var(--accent)}a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--accent);outline-offset:5px}
-.wrap{width:min(1120px,calc(100% - 80px));margin:auto}.masthead{padding:34px 0 26px;border-bottom:3px solid var(--ink);display:flex;gap:20px;justify-content:space-between;font-size:14px;line-height:1.45;color:var(--muted)}.masthead span:first-child{color:var(--ink)}
-header{padding:64px 0 40px}.eyebrow{text-transform:uppercase;letter-spacing:.08em;font-size:14px;color:var(--muted);margin:0 0 20px}h1,h2{font-family:'Bodoni 72',Didot,'Times New Roman',serif;font-weight:400}h1{font-size:clamp(38px,5.4vw,68px);line-height:1.08;letter-spacing:-.025em;max-width:1000px;margin:0 0 30px}h2{font-size:clamp(29px,3.5vw,40px);line-height:1.18;margin:0 0 24px}h3{font-size:20px;line-height:1.4;margin:28px 0 10px}p{margin:0 0 20px}.intro{max-width:760px;font-size:22px;line-height:1.5}.meta{font-size:14px;color:var(--muted);margin-top:28px}
-.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px;border-block:1px solid var(--line);padding:26px 0;margin:10px 0 36px}.facts p{margin:0;font-size:16px}.facts strong{display:block;font-size:40px;font-weight:400;line-height:1.2;margin-bottom:8px}
-nav{display:flex;gap:14px 24px;flex-wrap:wrap;font-size:16px;padding-bottom:38px}section{border-top:1px solid var(--line);padding:42px 0 26px}.prose{max-width:760px}.callout{border-left:3px solid var(--accent);padding:3px 0 3px 23px;margin:28px 0;font-size:22px;line-height:1.5}.callout p{margin:0}.small{font-size:15px;color:var(--muted)}ul,ol{padding-left:24px;margin:0 0 24px}li{padding-left:3px;margin-bottom:12px}
-.table-scroll{overflow-x:auto;max-width:100%;margin:26px 0 20px}table{width:100%;border-collapse:collapse;font-size:14px;line-height:1.45;text-align:left}caption{text-align:left;font-weight:600;font-size:18px;margin-bottom:16px}th,td{padding:13px 10px;border-bottom:1px solid var(--line);vertical-align:top}thead th{border-block:1px solid var(--ink);font-weight:600;white-space:nowrap}tbody th{font-weight:600;min-width:168px}.model{font-weight:400;color:var(--muted)}.numeric{white-space:nowrap;font-variant-numeric:tabular-nums}.ok{color:var(--green);font-weight:600}.partial{color:var(--accent)}
-.diagram{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;margin:28px 0}.diagram div{border-top:3px solid var(--ink);padding-top:14px}.diagram strong{display:block;font-size:18px}.diagram p{font-size:16px;color:var(--muted);margin:8px 0 0}.downloads{display:flex;flex-wrap:wrap;gap:16px 28px;margin:24px 0;font-size:16px}.download{padding-bottom:4px;border-bottom:1px solid var(--ink);text-decoration:none}footer{padding:28px 0 55px;font-size:14px;color:var(--muted);border-top:3px solid var(--ink)}button{font:inherit;color:inherit;background:white;border:1px solid var(--line);padding:7px 14px;cursor:pointer}button:hover{border-color:var(--ink)}.skip{position:absolute;top:-100px;left:20px;background:white;padding:8px}.skip:focus{top:10px}footer p{margin:0 0 12px}
-@media(max-width:700px){.wrap{width:calc(100% - 36px)}.masthead{flex-direction:column;gap:6px;padding-top:24px}header{padding-top:40px}.intro{font-size:20px}.facts{gap:15px}.facts strong{font-size:32px}.facts p{font-size:14px}.diagram{grid-template-columns:1fr;gap:18px}table{min-width:920px}section{padding-top:32px}nav{gap:12px 20px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-@media print{body{font-size:11pt}.wrap{width:100%}header{padding:22px 0}h1{font-size:32pt}h2{font-size:22pt}.intro,.callout{font-size:13pt}.masthead,nav,.downloads,.print-button,.skip{display:none}.table-scroll{overflow:visible}table{font-size:8pt;min-width:0}th,td{padding:7px 4px}tbody th{min-width:0}tr{break-inside:avoid}.diagram{break-inside:avoid}a{text-decoration:none}section{padding-top:22px}.facts strong{font-size:25pt}footer{padding-bottom:0}}
+body{margin:0;background:#ffffff}
+a{color:#000000}a:hover{color:#e2231a}.ico:hover{color:#000000 !important}
+.wrap{max-width:920px;margin:0 auto}
+.sec{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:20px}
+.con{grid-column:4 / 13}
+.c3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:24px;row-gap:56px}
+.row{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));column-gap:24px;padding:18px 0;border-bottom:1px solid #d9d9d9}
+.rule{height:3px;background:#000000;margin-bottom:28px;transform-origin:left center}
+@keyframes draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media (prefers-reduced-motion:no-preference){@supports (animation-timeline: view()){.rule{animation:draw linear both;animation-timeline:view();animation-range:entry 0% cover 15%}}}
+.badge{display:inline-flex;font-size:12px;line-height:1;border-radius:3px;overflow:hidden;text-decoration:none;font-weight:600}.badge span{padding:4px 6px}.badge .k{background:#555555;color:#ffffff}.badge .v{background:#000000;color:#ffffff}.badge:hover .v{background:#e2231a}
+.more{display:inline-flex;align-items:center;gap:12px;font-weight:700;text-decoration:none;color:#000000}.more svg{transition:transform .2s ease}.more:hover svg{transform:translateX(4px)}
+@media (prefers-reduced-motion:reduce){.more svg{transition:none}}
+.yr{grid-column:1 / 3}
+.tx{grid-column:3 / 10}
+@media (max-width:900px){.con{grid-column:1 / -1}.c3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.c3{grid-template-columns:minmax(0,1fr)}.yr,.tx{grid-column:1 / -1}.row{row-gap:4px}}
+
+.note-body{max-width:36em}.note-body p{margin:0 0 18px}.note-body h2{margin:36px 0 18px;font:400 22px/1.25 'Helvetica Neue',Helvetica,Arial,sans-serif}.note-body h3{margin:28px 0 14px;font:400 19px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif}
+.note-body section{margin:0;padding:0}.note-body ul,.note-body ol{padding-left:24px;margin:0 0 22px}.note-body li{margin-bottom:10px}.note-body a:focus-visible,summary:focus-visible,.table-scroll:focus-visible{outline:2px solid #e2231a;outline-offset:4px}
+.downloads{display:flex;flex-wrap:wrap;gap:12px 24px;margin:24px 0;font-size:16px}.download{text-underline-offset:4px}.note-body details{padding:14px 0;border-top:1px solid #d9d9d9}.note-body summary{cursor:pointer;font-size:16px}.note-body details p{margin:14px 0 0}.source-note,.small{font-size:15px;color:#6b6b6b}
+.technical .note-body{max-width:none}.prose{max-width:36em}.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-bottom:28px}.facts strong{display:block;font-size:32px;font-weight:400}.facts p{font-size:16px}.technical nav{display:flex;flex-wrap:wrap;gap:12px 24px;margin:0 0 30px;font-size:16px}
+.table-scroll{max-width:100%;overflow-x:auto;margin:24px 0}table{width:100%;border-collapse:collapse;text-align:left;font-size:14px;line-height:1.5}caption{text-align:left;font-size:17px;margin-bottom:14px}th,td{padding:12px 8px;border-bottom:1px solid #d9d9d9;vertical-align:top}thead th{border-top:1px solid #000;border-bottom:1px solid #000;font-weight:600}tbody th{font-weight:400;min-width:155px}.model{color:#6b6b6b}.numeric{white-space:nowrap;font-variant-numeric:tabular-nums}.ok{font-weight:600}
+.diagram{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:24px 0}.diagram p{font-size:16px}.callout{margin:24px 0}.callout p{margin:0}.skip{position:absolute;left:20px;top:-100px;background:#fff;padding:8px}.skip:focus{top:10px}
+@media(max-width:600px){.diagram{grid-template-columns:1fr}.facts{gap:12px}.facts p{font-size:14px}table{min-width:900px}}
+@media print{.site-header,.site-footer,.more,.downloads,.skip{display:none}.site-article{padding:0!important}.wrap{max-width:none}.note-body{max-width:36em}.table-scroll{overflow:visible}table{min-width:0;font-size:8pt}th,td{padding:6px 4px}tr{break-inside:avoid}a{text-decoration:none}}
 </style>
 </head>
 <body>
-<div class="wrap" style="padding-top:24px"><a href="informe.html">Volver al artículo</a></div>
-<a class="skip" href="#contenido">Saltar al informe</a>
-<div class="wrap">
-<div class="masthead"><span>INFORME DE CAMPO · IA LOCAL</span><span>25 de noviembre de 2026 · Caso anonimizado</span></div>
-<header><p class="eyebrow">Evaluación exploratoria de agentes de programación</p>
-<h1>Modelos locales y agentes de código: 16 ejecuciones sobre una tarea real</h1>
-<p class="intro">La misma tarea, el mismo código de partida y resultados distintos según la combinación de modelo y agente. La diferencia aparece al separar una función que pasa su prueba de una entrega que supera los controles acordados.</p>
-<p class="meta">Pi y OpenCode · Inferencia local con Ollama · Arranque frío y precalentado · Verificación externa</p></header>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #000000; background: #ffffff; font-size: 17px; line-height: 1.55">
+<header class="site-header" style="padding: clamp(32px, 4vw, 56px) max(10vw, 20px) 0">
+<div class="wrap" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 16px 40px">
+<div>
+<a href="../index.html" style="display: block; font-size: clamp(28px, 3vw, 40px); line-height: 1.1; font-weight: 300; color: #6b6b6b; text-decoration: none">Federico Block</a>
+<p style="margin: 8px 0 0; color: #6b6b6b">Innovación e IA. Medios, marketing y tecnología.</p>
+</div>
+<p style="margin: 0; display: flex; gap: 20px; padding-top: 12px">
+<a class="ico" href="https://www.linkedin.com/in/federicoblock/" aria-label="LinkedIn" style="display: inline-flex; width: 44px; height: 44px; align-items: center; justify-content: center; color: #6b6b6b"><svg width="24" height="24" viewBox="0 0 24 24" role="img" aria-label="LinkedIn"><rect x="0.75" y="0.75" width="22.5" height="22.5" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"></rect><text x="12" y="17" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="currentColor">in</text></svg></a>
+<a class="ico" href="https://github.com/fedeblock" aria-label="GitHub" style="display: inline-flex; width: 44px; height: 44px; align-items: center; justify-content: center; color: #6b6b6b"><svg width="24" height="24" viewBox="0 0 24 24" role="img" aria-label="GitHub"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
+</p>
+</div>
+</header>
+<article class="site-article technical" style="padding: clamp(64px, 7vw, 104px) max(10vw, 20px) clamp(80px, 9vw, 136px)">
+<div class="wrap"><div class="rule"></div>
+<p style="margin:0 0 12px;color:#6b6b6b">Algo de lo que pienso. Anexo técnico.</p>
+<h1 style="margin: 0 0 24px; font-family: 'Bodoni Moda', 'Bodoni 72', Didot, serif; font-weight: 400; font-size: clamp(28px, 3vw, 40px); line-height: 1.15">Modelos locales y agentes de código: 16 ejecuciones sobre una tarea real</h1>
+<p style="margin:0 0 40px;color:#6b6b6b;max-width:36em">25 de noviembre de 2026. <a href="informe.html" style="color:#6b6b6b">Volver al artículo</a>.</p>
+<div class="note-body">
+
 <main id="contenido">
 <div class="facts" aria-label="Alcance del estudio"><p><strong>16</strong>ejecuciones válidas</p><p><strong>2</strong>series distintas: 15 y 20 minutos</p><p><strong>1</strong>tarea y un intento por celda</p></div>
 <nav aria-label="Índice del informe"><a href="#hallazgos">Hallazgos</a><a href="#metodo">Método</a><a href="#resultados">Resultados</a><a href="#interpretacion">Interpretación</a><a href="#limites">Límites</a><a href="#datos">Datos y fuentes</a></nav>
@@ -137,12 +169,18 @@ nav{display:flex;gap:14px 24px;flex-wrap:wrap;font-size:16px;padding-bottom:38px
 <li><strong>Reproducibilidad parcial.</strong> Se publica un extracto de resultados. El código de partida, el encargo literal, los logs y las trazas se mantienen privados para reducir la exposición del proyecto. El extracto no permite reproducir por sí solo el experimento.</li></ul>
 <p>El siguiente paso metodológico sería repetir cada celda, alternar el orden, fijar configuraciones equivalentes cuando sea posible y separar la latencia de carga del tiempo de trabajo útil. Esa ampliación no forma parte de los resultados presentados.</p></div></section>
 
-<section id="datos"><div class="prose"><h2>Datos, fuentes y anonimización</h2>
+<section id="datos"><div class="prose"><h2>Datos y fuentes</h2>
 <p>El informe se elaboró a partir de los resultados consolidados de las cuatro rondas válidas y de sus informes de verificación, correspondientes a noviembre de 2026. Los cuatro grupos se identifican como <strong>S15-F</strong>, <strong>S15-P</strong>, <strong>S20-F</strong> y <strong>S20-P</strong>: presupuesto de 15 o 20 minutos, en frío o precalentado. Cada fila descargable conserva su grupo y un identificador editorial.</p>
 <p>El JSON incluye definiciones de los campos y los resultados de navegador; el CSV permite analizar las 16 ejecuciones. Son extractos editoriales de los registros originales, no una auditoría independiente ni nuevas ejecuciones de las pruebas. La auditoría interna conservada de la ampliación declara 138 comprobaciones de protocolo verificadas.</p></div>
 <div class="downloads"><a class="download" href="resultados.csv" download>Descargar resultados CSV</a><a class="download" href="resultados.json" download>Descargar resultados JSON</a></div>
-<div class="prose"><p>Se han omitido nombres de personas, nombre del proyecto, repositorios, rutas locales, ramas, commits del proyecto, direcciones de correo, capturas y trazas. Se conservan los nombres de las herramientas y modelos, la configuración técnica relevante y las métricas para poder interpretar la comparación. No se incluyen registros brutos, archivos de configuración ni credenciales.</p>
-<p class="small">La anonimización se aplica al caso y a los datos publicados. No implica que el sitio que aloje el informe o su publicación en una red social oculten la identidad de quien lo difunde.</p></div></section>
+<div class="prose">
+</div></section>
 </main>
-<footer><p>Informe de campo · Noviembre de 2026 · Anexo técnico · Versión 1.3</p><p>Una comparación local y acotada. Los resultados describen estas ejecuciones y estas condiciones.</p><button class="print-button" type="button" onclick="window.print()">Imprimir o guardar como PDF</button></footer>
-</div></body></html>
+</div>
+<p style="margin: 40px 0 0; text-align: right"><a class="more" href="../pienso.html" aria-label="Volver a Algo de lo que pienso"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="13" fill="none" stroke="currentColor" stroke-width="1.5"></circle><path d="M8 14h11M15 10l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></p>
+</div>
+</article>
+<footer class="site-footer" style="padding: 0 max(10vw, 20px) 40px"><div class="wrap" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; color: #6b6b6b"><span>Federico Block, Madrid.</span><a href="../agents.md" style="color: #6b6b6b">agents.md</a></div></footer>
+</div>
+</body>
+</html>
