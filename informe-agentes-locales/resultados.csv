@@ -1,0 +1,17 @@
+id,fuente,presupuesto_minutos,condicion,agente,modelo,tiempo_cli_segundos,corte_por_limite,precalentamiento_segundos,tipos_ok,unidad_ok,unidad_aprobadas,unidad_fallidas,unidad_total_ejecutadas,unidad_omitidas,suite_ok,suite_aprobadas,suite_fallidas,suite_total_ejecutadas,suite_omitidas,navegador_ok,navegador_aprobadas,navegador_fallidas,navegador_total_ejecutadas,navegador_omitidas,correo_ok,correo_aprobadas,correo_fallidas,correo_total_ejecutadas,correo_omitidas,cierre_cli,controles_seleccionados_ok,entrega_verificada,correcciones_humanas_codigo,suite_repetida_sin_cambio_codigo,incidencia_transporte
+S15-F-01,S15-F,15,Fría,Pi,Qwen 3.8 27B,788.338,False,,True,True,408,0,408,0,True,1138,0,1138,0,False,148,2,150,1,True,1,0,1,0,True,True,True,0,False,False
+S15-F-02,S15-F,15,Fría,OpenCode,Qwen 3.8 27B,900,True,,False,True,408,0,408,0,True,1138,0,1138,0,False,148,2,150,1,True,1,0,1,0,False,False,False,0,False,False
+S15-F-03,S15-F,15,Fría,Pi,Ripple Preview,900,True,,False,False,406,2,408,0,False,1137,1,1138,0,False,147,3,150,1,False,0,1,1,0,False,False,False,0,False,False
+S15-F-04,S15-F,15,Fría,OpenCode,Ripple Preview,900,True,,False,False,406,2,408,0,False,1137,1,1138,0,False,147,3,150,1,False,0,1,1,0,False,False,False,0,False,False
+S15-P-01,S15-P,15,Precalentada,Pi,Qwen 3.8 27B,900,True,11.786,False,False,410,3,413,0,False,1141,2,1143,0,False,147,3,150,1,False,0,1,1,0,False,False,False,0,False,False
+S15-P-02,S15-P,15,Precalentada,OpenCode,Qwen 3.8 27B,900,True,15.443,False,True,408,0,408,0,True,1138,0,1138,0,False,148,2,150,1,True,1,0,1,0,False,False,False,0,False,False
+S15-P-03,S15-P,15,Precalentada,Pi,Ripple Preview,900,True,58.533,False,False,406,2,408,0,False,1136,2,1138,0,False,147,3,150,1,False,0,1,1,0,False,False,False,0,False,False
+S15-P-04,S15-P,15,Precalentada,OpenCode,Ripple Preview,900,True,70.953,False,False,406,2,408,0,False,1137,1,1138,0,False,147,3,150,1,False,0,1,1,0,False,False,False,0,False,False
+S20-F-01,S20-F,20,Fría,Pi,Inkling 2 Mini,703.294,False,,False,False,417,1,418,0,False,1147,1,1148,0,False,148,2,150,1,True,1,0,1,0,True,False,False,0,False,False
+S20-F-02,S20-F,20,Fría,OpenCode,Inkling 2 Mini,1200,True,,False,False,406,2,408,0,False,1137,1,1138,0,False,148,2,150,1,False,0,1,1,0,False,False,False,0,False,True
+S20-F-03,S20-F,20,Fría,Pi,Qwen adaptado a Pi,603.526,False,,True,True,408,0,408,0,True,1138,0,1138,0,False,148,2,150,1,True,1,0,1,0,True,True,True,0,False,False
+S20-F-04,S20-F,20,Fría,OpenCode,Qwen adaptado a Pi,1200,True,,False,False,406,2,408,0,False,1137,1,1138,0,False,148,2,150,1,False,0,1,1,0,False,False,False,0,False,False
+S20-P-01,S20-P,20,Precalentada,Pi,Inkling 2 Mini,1200,True,11.096,False,False,415,1,416,0,False,1145,1,1146,0,False,148,2,150,1,True,1,0,1,0,False,False,False,0,False,False
+S20-P-02,S20-P,20,Precalentada,OpenCode,Inkling 2 Mini,1200,True,11.086,False,False,406,2,408,0,False,1137,1,1138,0,False,148,2,150,1,False,0,1,1,0,False,False,False,0,False,False
+S20-P-03,S20-P,20,Precalentada,Pi,Qwen adaptado a Pi,546.287,False,11.503,True,True,408,0,408,0,True,1138,0,1138,0,False,148,2,150,1,True,1,0,1,0,True,True,True,0,True,False
+S20-P-04,S20-P,20,Precalentada,OpenCode,Qwen adaptado a Pi,753.651,False,11.798,True,True,408,0,408,0,True,1138,0,1138,0,False,148,2,150,1,True,1,0,1,0,True,True,True,0,False,False
